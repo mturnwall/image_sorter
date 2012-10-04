@@ -1,2 +1,30 @@
+
+
 @import "compass/css3";
 @import "compass/reset";
+
+@import "typography";
+@import "layout";
+$experimental-support-for-svg: true;
+
+body {
+	background-color: rgb(238,238,238);
+	@include filter-gradient(#eeeeee, #cccccc, vertical);
+	@include background-image(linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%));
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	font: $baseFontSize $sansFont;
+	line-height: 18px;
+	color: $textColor;	
+}
+header {
+
+	h1 {
+		font-size: $baseFontSize * 3;
+		padding: 0 0 10px;
+		line-height: 1.3em;
+	}
+	p {
+		font-size: $baseFontSize * 1.167;
+	}
+}
