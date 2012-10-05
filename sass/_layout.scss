@@ -1,0 +1,16 @@
+$pageWidth: 960px;
+
+* {
+	box-sizing: border-box;
+}
+header, article, footer {
+	width: $pageWidth;
+	margin: 40px auto;
+}
+article {
+	background-color: #fff;
+	border: 1px solid #c0c0c0;
+	padding: 20px;
+	width: 660px;
+	height: 459px;
+}
