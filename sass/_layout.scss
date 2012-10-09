@@ -1,6 +1,8 @@
-$pageWidth: 960px;
+$pageWidth: 702px;
 
 * {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 header, article, footer {
@@ -10,7 +12,10 @@ header, article, footer {
 article {
 	background-color: #fff;
 	border: 1px solid #c0c0c0;
-	padding: 20px;
-	width: 660px;
-	height: 459px;
+	padding: 20px 0 0 20px;
+	height: 487px;
+	@include box-shadow(0 0 5px rgba(0, 0, 0, 0.5) inset);
+	@include border-radius(5px);
+	@include clearfix;
+	position: relative;
 }
