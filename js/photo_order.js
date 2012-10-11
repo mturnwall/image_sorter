@@ -22,7 +22,6 @@ var PO = (function() {
 					that.startDrag(e, this);
 				},
 				mouseup: function(e) {
-					e.preventDefault();
 					console.log('mouseup');
 					that.stopDrag(e, this);
 				},
@@ -35,7 +34,7 @@ var PO = (function() {
 				}
 			});
 		},
-		findPosition: function(el, offset) {
+		findPostion: function(el, offset) {
 			var pos = {
 				x: 0,
 				y: 0
@@ -55,22 +54,9 @@ var PO = (function() {
 			return pos;
 		},
 		startDrag: function(e, el) {
-			// where the mouse was clicked relative to the element
-			this.click = {
-				x: e.pageX - $(el).offset().left,
-				y: e.pageY - $(el).offset().top
-			};
-			console.log(this.click);
-			// original mouse position
-			this.startX = e.pageX;
-			this.startY = e.pageY;
-			// original draggable position
-			this.elStartX = $(el).offset().left;
-			this.elStartY = $(el).offset().top;
 			this.dragging = true;
 			if (!isDraggable(el)) {
 				console.log('startDrag');
-				el.style.zIndex = 1000;
 				el.className += ' dragging';
 			}
 		},
@@ -78,13 +64,14 @@ var PO = (function() {
 			console.log('stopDrag');
 			this.dragging = false;
 			el.className = el.className.replace('dragging', '');
-			el.style.zIndex = 1;
 		},
 		drag: function(e, el) {
-			if (!isDraggable(el)) {
-				console.log('drag for real');
-				el.style.left = (e.pageX - this.click.x - this.elStartX) + 'px';
-				el.style.top = (e.pageY - this.click.y - this.elStartY) + 'px';
+			var articleOffset = $('article').offset();
+			console.log('drag = ', el);
+			if (isDraggable(el)) {
+				console.log('drag');
+				el.style.left = (e.pageX - articleOffset.left) + 'px';
+				el.style.top = (e.pageY - articleOffset.top) + 'px';
 			}
 		},
 		init: function(options) {
