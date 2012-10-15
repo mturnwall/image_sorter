@@ -7,6 +7,7 @@
  */
 var PO = (function() {
 	var defaults = {
+			dragArea: '#dragArea',
 			dragItemSel: '.draggable'
 		},
 		regexp = new RegExp('dragging', 'ig');
@@ -38,6 +39,16 @@ var PO = (function() {
 		}
 	}
 
+	function checkLocalStorage () {
+		try {
+			localStorage.setItem('check', true);
+			localStorage.removeItem('check');
+			return true;
+		} catch(e) {
+			return false;
+		}
+	}
+
 	return {
 
 		/**
@@ -48,21 +59,38 @@ var PO = (function() {
 			that.draggables.on({
 				mousedown: function(e) {
 					if (findMouseBtn(e)) {
+						var el = this;
 						e.preventDefault();
 						that.index = that.placeholderIndex = that.draggables.index(this);
 						that.startDrag(e, this);
-					}
-				},
-				mouseup: function(e) {
-					e.preventDefault();
-					that.stopDrag(e, this);
-				},
-				mousemove: function(e) {
-					if (that.dragging) {
-						that.drag(e, this);
+						$(document).on({
+							mouseup: function(e) {
+								e.preventDefault();
+								that.stopDrag(e, el);
+							},
+							mousemove: function(e) {
+								if (that.dragging) {
+									that.drag(e, el);
+								}
+							}
+						});
 					}
 				}
 			});
+		},
+
+		setItems: function() {
+			var photoOrder = {
+				id: []
+			};
+			this.draggables.each(function(i) {
+				photoOrder.id.push(this.id);
+			});
+			localStorage.setItem('photoOrder', JSON.stringify(photoOrder));
+		},
+
+		getItems: function(key) {
+			return localStorage.getItem(key);
 		},
 
 		/**
@@ -107,8 +135,8 @@ var PO = (function() {
 		 */
 		startDrag: function(e, el) {
 			// original mouse position
-			this.startX = e.clientX;
-			this.startY = e.clientY;
+			this.startX = e.pageX;
+			this.startY = e.pageY;
 
 			// original draggable position
 			this.elStartX = $(el).position().left;
@@ -142,6 +170,8 @@ var PO = (function() {
 					that.putDragger(this);
 				}
 			});
+			$(document).off('mousemove');
+			$(document).off('mouseup');
 		},
 
 		/**
@@ -155,6 +185,9 @@ var PO = (function() {
 			el.style.top = '';
 			// reset the jQuery collection since the DOM has changed
 			this.draggables = this.getDraggables();
+			if (this.canStore) {
+				this.setItems();
+			}
 		},
 
 		/**
@@ -203,9 +236,9 @@ var PO = (function() {
 		drag: function(e, el) {
 			var left, top;
 			if (isDraggable(el)) {
-				left = (e.clientX - this.startX) + this.elStartX;
-				top = (e.clientY - this.startY) + this.elStartY;
-				this.findNewPos(e.clientX, e.clientY);
+				left = (e.pageX - this.startX) + this.elStartX;
+				top = (e.pageY - this.startY) + this.elStartY;
+				this.findNewPos(e.pageX, e.pageY);
 				el.style.left = left + 'px';
 				el.style.top = top + 'px';
 			}
@@ -239,6 +272,23 @@ var PO = (function() {
 			return positions;
 		},
 
+		setOrder: function() {
+			var order = JSON.parse(this.getItems('photoOrder')) || false,
+				key,
+				length,
+				tempNode,
+				i,
+				dragArea;
+			if (order) {
+				dragArea = $(this.opts.dragArea);
+				length = order.id.length;
+				for (i=0; i<length; i++) {
+					tempNode = $('#' + order.id[i]).detach();
+					dragArea.append(tempNode);
+				}
+			}
+		},
+
 		/**
 		 * initialize the PO object
 		 * @param  {Object} options an object literal that can be passed into the
@@ -248,6 +298,10 @@ var PO = (function() {
 		init: function(options) {
 			var that = this;
 			this.opts = $.extend({}, options, defaults);
+			this.canStore = checkLocalStorage();
+			if (this.canStore) {
+				this.setOrder();
+			}
 			this.draggables = this.getDraggables();
 			this.positions = this.getDraggalbePositions();
 			this.dragging = false;
@@ -255,3 +309,4 @@ var PO = (function() {
 		}
 	};
 })();
+

@@ -1,4 +1,4 @@
-/* line 17, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,63 +20,63 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, /Users/michael/.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 3, /Users/michael/Sites/repos/developer-exercise/sass/_layout.scss */
+/* line 3, ../sass/_layout.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 8, /Users/michael/Sites/repos/developer-exercise/sass/_layout.scss */
+/* line 8, ../sass/_layout.scss */
 header, article, footer {
   width: 702px;
   margin: 40px auto;
 }
 
-/* line 12, /Users/michael/Sites/repos/developer-exercise/sass/_layout.scss */
+/* line 12, ../sass/_layout.scss */
 article {
   background-color: #fff;
   border: 1px solid #c0c0c0;
@@ -95,7 +95,7 @@ article {
   position: relative;
 }
 
-/* line 11, /Users/michael/Sites/repos/developer-exercise/sass/_base.scss */
+/* line 11, ../sass/_base.scss */
 body {
   background-color: #eeeeee;
   *zoom: 1;
@@ -114,23 +114,23 @@ body {
   color: #333333;
 }
 
-/* line 23, /Users/michael/Sites/repos/developer-exercise/sass/_base.scss */
+/* line 23, ../sass/_base.scss */
 header h1 {
   font-size: 36px;
   padding: 0 0 10px;
   line-height: 1.3em;
 }
-/* line 28, /Users/michael/Sites/repos/developer-exercise/sass/_base.scss */
+/* line 28, ../sass/_base.scss */
 header p {
   font-size: 14.004px;
 }
 
-/* line 32, /Users/michael/Sites/repos/developer-exercise/sass/_base.scss */
+/* line 32, ../sass/_base.scss */
 .placeholder {
   background-color: rgba(125, 125, 125, 0.2);
 }
 
-/* line 1, /Users/michael/Sites/repos/developer-exercise/sass/_photos.scss */
+/* line 1, ../sass/_photos.scss */
 .imageItem {
   position: relative;
   z-index: 1;
@@ -138,15 +138,12 @@ header p {
   border: 1px solid #333;
   margin: 0 20px 20px 0;
 }
-/* line 8, /Users/michael/Sites/repos/developer-exercise/sass/_photos.scss */
+/* line 8, ../sass/_photos.scss */
 .imageItem.dragging {
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   position: absolute;
   z-index: 100;
 }
-/* line 13, /Users/michael/Sites/repos/developer-exercise/sass/_photos.scss */
+/* line 13, ../sass/_photos.scss */
 .imageItem img {
   display: block;
   cursor: pointer;
