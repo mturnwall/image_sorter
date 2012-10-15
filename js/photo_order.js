@@ -39,6 +39,10 @@ var PO = (function() {
 		}
 	}
 
+	/**
+	 * determine if the localStorage object is supported by setting and removing an item
+	 * @returns {Boolean} if localStorage exists return true
+	 */
 	function checkLocalStorage () {
 		try {
 			localStorage.setItem('check', true);
@@ -79,6 +83,9 @@ var PO = (function() {
 			});
 		},
 
+		/**
+		 * write the order of the images to the localStorage object
+		 */
 		setItems: function() {
 			var photoOrder = {
 				id: []
@@ -89,6 +96,11 @@ var PO = (function() {
 			localStorage.setItem('photoOrder', JSON.stringify(photoOrder));
 		},
 
+		/**
+		 * get the order of the images from localStorage
+		 * @param  {String} key the key where the items are located
+		 * @return {String}     the value from localStorage
+		 */
 		getItems: function(key) {
 			return localStorage.getItem(key);
 		},
@@ -217,6 +229,7 @@ var PO = (function() {
 			
 			for (i=0; i < length; i++) {
 				quadrant = this.constructQuadrants(i);
+				// determine if the mouse pointer is over one of the draggable element areas
 				if ((x > quadrant.xStart && y > quadrant.yStart) && (x < quadrant.xEnd && y < quadrant.yEnd)) {
 					if (this.placeholderIndex < i) {
 						insertPoint = 'after';
@@ -272,6 +285,9 @@ var PO = (function() {
 			return positions;
 		},
 
+		/**
+		 * reorder the images based on the stored order
+		 */
 		setOrder: function() {
 			var order = JSON.parse(this.getItems('photoOrder')) || false,
 				key,
