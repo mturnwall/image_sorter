@@ -186,10 +186,11 @@ var PO = (function() {
 				quadrant = this.constructQuadrants(i);
 				if ((x > quadrant.xStart && y > quadrant.yStart) && (x < quadrant.xEnd && y < quadrant.yEnd)) {
 					if (this.placeholderIndex < i) {
-						this.movePlaceholder(this.draggables[i], 'after');
+						insertPoint = 'after';
 					} else {
-						this.movePlaceholder(this.draggables[i], 'before');
+						insertPoint = 'before';
 					}
+					this.movePlaceholder(this.draggables[i], insertPoint);
 				}
 			}
 		},
