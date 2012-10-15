@@ -10,6 +10,6 @@ Create a basic photo ordering tool based on the images and JavaScript include pr
 
 - This should be a completely client-side exercise. Server code to store the new photo order isn’t necessary.
 - While the use of libraries is permitted for basic DOM manipulation or event handling, it’s expected that the core content should be original.
-- Code should be optimized for Safari. Support for other browsers is not necessary.
-- As a general rule, this exercise should take 2-3 hours.
+- Code should be cross browser compatible. For IE it should work in IE8+.
+- As a general rule, this exercise should take 4-5 hours.
 - Extra points for style.
